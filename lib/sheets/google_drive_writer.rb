@@ -7,6 +7,9 @@ module Sheets
 
     def export_row(row, col, array)
       array.each_with_index { |val, index|
+        if val.is_a? Numeric
+          val = val.to_s.gsub('.', ',')
+        end
         @export_sheet[row+1, col+index+1] = val
       }
     end
