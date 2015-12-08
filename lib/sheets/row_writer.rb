@@ -1,5 +1,5 @@
 module Sheets
-  class Writer
+  class RowWriter
     def export_row(row, col, arr)
       raise 'Subclass should override export row'
     end

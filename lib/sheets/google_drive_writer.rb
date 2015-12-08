@@ -1,6 +1,6 @@
 module Sheets
-  class GoogleDriveWriter < Writer
-    def initialize(session, workbook_name, sheet='export_sheet')
+  class GoogleDriveRowWriter < RowWriter
+    def initialize(session, workbook_name, sheet='export_test')
       workbook = session.spreadsheet_by_key(workbook_name)
       @export_sheet = workbook.worksheet_by_title(sheet)
     end

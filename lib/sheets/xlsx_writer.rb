@@ -1,5 +1,5 @@
 module Sheets
-  class XlsxWriter < Writer
+  class XlsxWriter < RowWriter
     def initialize(filename, sheet_num=0)
       @filename = filename
       @workbook = RubyXL::Workbook.new
