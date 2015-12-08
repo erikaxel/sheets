@@ -30,5 +30,9 @@ module Sheets
     def num_rows
       @sheet.num_rows
     end
+
+    def as_date(num)
+      DateTime.new(1899,12,30) + num
+    end
   end
 end

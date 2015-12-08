@@ -13,9 +13,17 @@ RSpec.shared_examples 'row reader' do
     expect(row2).to match_array([BigDecimal('2.2'), BigDecimal('2.3'), BigDecimal('2.4')])
   end
 
-  it 'returns the correct number of rows' do
-    expect(@reader.num_rows).to eq 4
+  it 'can read a date row' do
+    row3 = @reader.import_row(4)
+    if row3[0].is_a? Float
+      val = @reader.as_date(row3[0])
+    else
+      val = row3[0]
+    end
+    expect(val).to eq DateTime.new(2015, 2, 1)
   end
 
-
+  it 'returns the correct number of rows' do
+    expect(@reader.num_rows).to eq 5
+  end
 end

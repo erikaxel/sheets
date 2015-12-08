@@ -7,6 +7,5 @@ describe Sheets do
     end
 
     it_behaves_like 'row reader'
-
   end
 end

@@ -19,11 +19,17 @@ module Sheets
       #   }
       # }
       # Does an unecessary copy, should probably use each instead
-      @worksheet[row].cells.map {|cell| cell && cell.value }
+      row = @worksheet[row]
+      row.nil? ? nil : row.cells.map {|cell| cell && cell.value }
     end
 
     def num_rows
       @worksheet.count
+    end
+
+    # Noop
+    def as_date(date)
+      date
     end
   end
 end

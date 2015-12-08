@@ -7,5 +7,9 @@ module Sheets
     def num_rows
       raise 'Subclass should override num_rows'
     end
+
+    def as_date(date)
+      raise 'Subclass should override as_date'
+    end
   end
 end
