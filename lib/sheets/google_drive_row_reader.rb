@@ -26,5 +26,9 @@ module Sheets
         @sheet.rows[row_index]
       end
     end
+
+    def num_rows
+      @sheet.num_rows
+    end
   end
 end

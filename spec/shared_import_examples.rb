@@ -13,4 +13,9 @@ RSpec.shared_examples 'row reader' do
     expect(row2).to match_array([BigDecimal('2.2'), BigDecimal('2.3'), BigDecimal('2.4')])
   end
 
+  it 'returns the correct number of rows' do
+    expect(@reader.num_rows).to eq 4
+  end
+
+
 end
