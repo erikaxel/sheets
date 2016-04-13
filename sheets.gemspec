@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sheets/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "sheets"
+  spec.name          = 'sheets'
   spec.version       = Sheets::VERSION
-  spec.authors       = ["Erik Axel Nielsen"]
-  spec.email         = ["erikaxel.nielsen@gmail.com"]
+  spec.authors       = ['Erik Axel Nielsen']
+  spec.email         = ['erikaxel.nielsen@gmail.com']
 
   spec.summary       = %q{Allows to read or write rows to sheets (google docs, or xlsx).}
-  spec.license       = "MIT"
+  spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -21,14 +21,14 @@ Gem::Specification.new do |spec|
   # end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
+  spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   spec.add_dependency 'rubyXL'
   spec.add_dependency 'google_drive'
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "figaro"
+  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'figaro'
 end
