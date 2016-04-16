@@ -12,7 +12,13 @@ module Sheets
 
     def export_row(row, col, array)
       array.each_with_index { |val, index|
-        @worksheet.add_cell(row, col+index, val)
+        c = @worksheet.add_cell(row,col+index)
+        c.set_number_format('yyyy-mm-dd') if val.kind_of?(Date)
+        if val.kind_of?(DateTime) || val.kind_of?(Time)
+          val = val.strftime('%Y-%m-%d %H:%M:%S')
+          c.set_number_format('yyyy-mm-dd h:mm:ss')
+        end
+        c.change_contents(val)
       }
     end
 
