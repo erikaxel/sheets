@@ -1,0 +1,11 @@
+types:
+ - test
+
+rspec:
+  type: test
+  script:
+    - gem install bundler
+    - bundle install
+    - bundle exec rspec
+  tags:
+    - ruby
