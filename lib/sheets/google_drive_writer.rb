@@ -14,6 +14,10 @@ module Sheets
       }
     end
 
+    def export_header(array)
+      export_row(0, 0, array)
+    end
+
     def save()
       @export_sheet.save
     end

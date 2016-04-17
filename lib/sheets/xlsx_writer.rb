@@ -10,6 +10,10 @@ module Sheets
       @worksheet = @workbook.add_worksheet(sheet_name)
     end
 
+    def export_header(array)
+      export_row(0, 0, array)
+    end
+
     def export_row(row, col, array)
       array.each_with_index { |val, index|
         c = @worksheet.add_cell(row,col+index)
