@@ -9,7 +9,8 @@ module Sheets
         user: '',
         password: '',
         scheme: 'http',
-        log: true
+        log: true,
+        retries: 3
       }.merge options
       @client = Elasticsearch::Client.new log: @options[:log], hosts: {
         host: @options[:host],
@@ -42,7 +43,18 @@ module Sheets
       array.each_with_index { |val, index|
         body[@keys[index]] = val unless @keys[index] == 'id'
       }
-      @client.index index: @indexname, id: array[@id_col], type: @type, body: body
+      for i in 0..@options[:retries]
+        begin
+          @client.index index: @indexname, id: array[@id_col], type: @type, body: body
+          break #Successfull, break the loop
+        rescue Exception => e
+          puts e.message
+          if i == @options[:retries]
+            raise e
+          end
+          sleep 5
+        end
+      end
     end
 
     def save()
