@@ -1,5 +1,5 @@
 require 'rubyXL'
-require 'google/api_client'
+require 'google/apis'
 require 'google_drive'
 require 'sheets/version'
 require 'sheets/row_writer'
