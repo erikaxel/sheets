@@ -1,6 +1,6 @@
 module Sheets
   class RowReader
-    def import_row(row)
+    def import_row(_row)
       raise 'Subclass should override get_row'
     end
 
@@ -8,7 +8,7 @@ module Sheets
       raise 'Subclass should override num_rows'
     end
 
-    def as_date(date)
+    def as_date(_date)
       raise 'Subclass should override as_date'
     end
   end

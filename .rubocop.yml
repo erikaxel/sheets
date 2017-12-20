@@ -1,0 +1,82 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+  Exclude:
+    - 'Gemfile*'
+    - 'bin/**/*'
+    - 'out/**/*'
+    - 'tmp/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - 'lib/tasks/cucumber.rake'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+# We do not use this cop which suggests using .nonzero? instead of val != 0.
+Style/NumericPredicate:
+  Enabled: false
+
+# We don't use these styles
+Layout/SpaceInsideHashLiteralBraces:
+  # We use {a:b, c:d}   not { a:b, c:d }
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# We do not use this cop which suggests not allowing names such as total_m2 or found_cw_400
+Naming/VariableNumber:
+  Enabled: false
+
+Layout/CaseIndentation:
+  # We indent case in a switch
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/BlockLength:
+  Max: 50
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/PerceivedComplexity:
+  Max: 11
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Lint/SafeNavigationChain:
+  Enabled: false

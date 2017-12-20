@@ -7,4 +7,3 @@ require 'figaro'
 
 Figaro.application = Figaro::Application.new(environment: '', path: 'config/application.yml')
 Figaro.load
-

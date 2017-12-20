@@ -35,29 +35,25 @@ module Sheets
       raise 'Need to call add_sheet() before exporting row' if @type.nil?
 
       # We interpret row 0 as at the header
-      if row==0 && col == 0
-        return
-      end
+      return if row == 0 && col == 0
 
       body = {}
-      array.each_with_index { |val, index|
+      array.each_with_index do |val, index|
         body[@keys[index]] = val unless @keys[index] == 'id'
-      }
+      end
       for i in 0..@options[:retries]
         begin
           @client.index index: @indexname, id: array[@id_col], type: @type, body: body
-          break #Successfull, break the loop
+          break # Successfull, break the loop
         rescue Exception => e
           puts e.message
-          if i == @options[:retries]
-            raise e
-          end
+          raise e if i == @options[:retries]
           sleep 5
         end
       end
     end
 
-    def save()
+    def save
       @client.indices.refresh index: @indexname
     end
   end

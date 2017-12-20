@@ -20,7 +20,7 @@ module Sheets
       # }
       # Does an unecessary copy, should probably use each instead
       row = @worksheet[row]
-      row.nil? ? nil : row.cells.map {|cell| cell && cell.value }
+      row.nil? ? nil : row.cells.map { |cell| cell&.value }
     end
 
     def num_rows
