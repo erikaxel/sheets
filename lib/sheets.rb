@@ -1,13 +1,29 @@
-require 'rubyXL'
-require 'google/apis'
-require 'google_drive'
 require 'sheets/version'
 require 'sheets/row_writer'
-require 'sheets/xlsx_writer'
-require 'sheets/google_drive_writer'
-require 'sheets/elastisearch_writer'
-require 'sheets/xlsx_row_reader'
-require 'sheets/google_drive_row_reader'
+
+begin
+  require 'rubyXL'
+  require 'sheets/xlsx_writer'
+  require 'sheets/xlsx_row_reader'
+rescue LoadError
+  # Noop
+end
+
+begin
+  require 'google/apis'
+  require 'google_drive'
+  require 'sheets/google_drive_writer'
+  require 'sheets/google_drive_row_reader'
+rescue LoadError
+  # Noop
+end
+
+begin
+  require 'elasticsearch'
+  require 'sheets/elastisearch_writer'
+rescue LoadError
+  # Noop
+end
 
 module Sheets
 end

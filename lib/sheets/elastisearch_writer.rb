@@ -1,5 +1,3 @@
-require 'elasticsearch'
-
 module Sheets
   class ElastisearchWriter < RowWriter
     def initialize(indexname, options = {})
