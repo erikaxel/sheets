@@ -12,7 +12,9 @@ RSpec.shared_examples 'row reader' do
     row1 = @reader.import_row(2)
     row2 = @reader.import_row(3)
     expect(row1).to match_array([1, 2, 3])
-    expect(row2).to match_array([BigDecimal.new('2.2'), BigDecimal.new('2.3'), BigDecimal.new('2.4')])
+    expect(row2).to match_array([BigDecimal('2.2', 0),
+                                 BigDecimal('2.3', 0),
+                                 BigDecimal('2.4', 0)])
   end
 
   it 'can read a date row' do

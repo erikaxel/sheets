@@ -3,6 +3,7 @@ require 'sheets/row_writer'
 
 begin
   require 'rubyXL'
+  require 'rubyXL/convenience_methods'
   require 'sheets/xlsx_writer'
   require 'sheets/xlsx_row_reader'
 rescue LoadError

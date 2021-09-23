@@ -4,8 +4,8 @@ types:
 rspec:
   type: test
   script:
-    - gem install bundler
-    - bundle install
+    - gem install bundler --version '1.17.3'
+    - bundle _1.17.3_ install
     - bundle exec rspec
   tags:
     - ruby
